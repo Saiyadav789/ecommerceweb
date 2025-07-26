@@ -27,3 +27,13 @@ function handleClick(e){
 allAnchors.forEach((anchor)=>{
     anchor.addEventListener("click",handleClick)
 })
+window.addEventListener('popstate',(e)=>{
+    // console.log(location)
+    let path=location.pathname
+    if(path=="/index.html"){
+        root.innerHTML=""
+    }
+    else{
+        root.innerHTML=router[path]()
+    }
+})
